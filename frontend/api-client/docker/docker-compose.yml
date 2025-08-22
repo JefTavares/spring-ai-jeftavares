@@ -1,13 +1,7 @@
 services:
-  cloudflare-jeftavares:
-    container_name: cloudflare-jeftavares
+  spring-ai-app:
+    container_name: spring-ai-app
     image: cloudflare/cloudflared:latest
-    command: tunnel --no-autoupdate run --token eyJhIjoiNmE0NDdiOGZlZTgwZWZkOTQwMzNkZDY4NTQ4ZjFkOWQiLCJ0IjoiYjA5NjkxOWQtYjdkNS00OGM3LTkwNGUtZGJmZjQwZTI1OTBjIiwicyI6IlpHUXhNMlZrTWpBdE5qQm1aaTAwT0RCa0xXSmlNV1V0T0dJd01HWTBZVFpsTmpFMCJ9
+    command: tunnel --no-autoupdate run --url http://localhost:5173 --token eyJhIjoiNmE0NDdiOGZlZTgwZWZkOTQwMzNkZDY4NTQ4ZjFkOWQiLCJ0IjoiYjA5NjkxOWQtYjdkNS00OGM3LTkwNGUtZGJmZjQwZTI1OTBjIiwicyI6IlpHUXhNMlZrTWpBdE5qQm1aaTAwT0RCa0xXSmlNV1V0T0dJd01HWTBZVFpsTmpFMCJ9
     restart: unless-stopped
-    networks:
-      - jeftavares_network
-
-networks:
-  jeftavares_network:
-    name: jeftavares_network
-    driver: bridge
+    network_mode: host
